@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_background"
+    android:padding="14dp"
+    android:layout_marginBottom="10dp">
+
+    <!-- Top row: checkbox + name + stats -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/check_habit"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="12dp"
+            android:buttonTint="@color/accent_green" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_habit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Streak stats row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <!-- Current streak -->
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:layout_marginEnd="18dp">
+                    <TextView android:id="@+id/tv_streak" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textColor="@color/accent_green"
+                        android:textSize="18sp" android:fontFamily="monospace" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="streak" android:textColor="@color/text_muted" android:textSize="9sp"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                </LinearLayout>
+
+                <!-- Days tracked -->
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:layout_marginEnd="18dp">
+                    <TextView android:id="@+id/tv_days_tracked" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textColor="@color/accent_amber"
+                        android:textSize="18sp" android:fontFamily="monospace" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="days tracked" android:textColor="@color/text_muted" android:textSize="9sp"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                </LinearLayout>
+
+                <!-- Best streak -->
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView android:id="@+id/tv_best_streak" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textColor="@color/accent_teal"
+                        android:textSize="18sp" android:fontFamily="monospace" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="best" android:textColor="@color/text_muted" android:textSize="9sp"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 14-day dot row — populated programmatically in adapter -->
+    <LinearLayout
+        android:id="@+id/dot_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="44dp" />
+
+</LinearLayout>

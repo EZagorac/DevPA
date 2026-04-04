@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/briefingFragment">
+
+    <fragment
+        android:id="@+id/briefingFragment"
+        android:name="com.devpa.app.ui.briefing.BriefingFragment"
+        android:label="Briefing" />
+
+    <fragment
+        android:id="@+id/habitsFragment"
+        android:name="com.devpa.app.ui.habits.HabitsFragment"
+        android:label="Habits" />
+
+    <fragment
+        android:id="@+id/portfolioFragment"
+        android:name="com.devpa.app.ui.portfolio.PortfolioFragment"
+        android:label="Portfolio" />
+
+    <!--
+        Email and Jobs fragments follow the same pattern as the above.
+        Scaffold them next using the same ViewModel + Fragment + layout structure.
+    -->
+
+</navigation>
