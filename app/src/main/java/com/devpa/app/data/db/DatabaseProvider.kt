@@ -21,6 +21,3 @@ object DatabaseProvider {
     }
 }
 
-// Extension to make the worker cleaner
-fun DevPADatabase.Companion.getInstance(context: Context) =
-    DatabaseProvider.getInstance(context)

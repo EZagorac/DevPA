@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Widget layout — IMPORTANT: RemoteViews has strict rules.
+    Only these view types are allowed: FrameLayout, LinearLayout, RelativeLayout,
+    GridLayout, TextView, ImageView, Button, ProgressBar, Chronometer, AnalogClock.
+    NO ConstraintLayout, NO RecyclerView, NO custom views.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background"
+    android:padding="12dp">
+
+    <!-- App label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DevPA"
+        android:textSize="9sp"
+        android:textColor="#888A8F"
+        android:letterSpacing="0.1"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Streak row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_streak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                android:textColor="#7FFF6E"
+                android:fontFamily="monospace"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="day streak"
+                android:textSize="10sp"
+                android:textColor="#888A8F" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_portfolio_pct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="28sp"
+                android:textColor="#60A5FA"
+                android:fontFamily="monospace"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="portfolio"
+                android:textSize="10sp"
+                android:textColor="#888A8F" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Days tracked -->
+    <TextView
+        android:id="@+id/widget_days_tracked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0d tracked"
+        android:textSize="11sp"
+        android:textColor="#FFC04A"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Habits today -->
+    <TextView
+        android:id="@+id/widget_habits_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 / 0 habits done today"
+        android:textSize="11sp"
+        android:textColor="#888A8F" />
+
+</LinearLayout>

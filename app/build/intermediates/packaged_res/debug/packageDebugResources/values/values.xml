@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_amber">#FFC04A</color>
+    <color name="accent_blue">#60A5FA</color>
+    <color name="accent_green">#7FFF6E</color>
+    <color name="accent_red">#FF6B6B</color>
+    <color name="accent_teal">#4FD1C5</color>
+    <color name="bg_primary">#0E0F11</color>
+    <color name="bg_surface">#16181C</color>
+    <color name="bg_surface2">#1E2026</color>
+    <color name="black">#FF000000</color>
+    <color name="border">#12FFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text_muted">#888A8F</color>
+    <color name="text_primary">#F0F0EE</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="add_habit">Add habit</string>
+    <string name="app_name">DevPA</string>
+    <string name="generate_briefing">Generate briefing</string>
+    <string name="nav_briefing">Briefing</string>
+    <string name="nav_email">Email</string>
+    <string name="nav_habits">Habits</string>
+    <string name="nav_jobs">Jobs</string>
+    <string name="nav_portfolio">Portfolio</string>
+    <string name="tasks_hint">What are you working on today?\ne.g. code player controller, fix jump bug, post devlog...</string>
+    <string name="widget_description">Shows your habit streak, days tracked, and portfolio progress</string>
+    <style name="Theme.DevPA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent_green</item>
+        <item name="colorPrimaryVariant">@color/bg_surface</item>
+        <item name="colorOnPrimary">@color/bg_primary</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+        <item name="android:statusBarColor">@color/bg_primary</item>
+        <item name="android:navigationBarColor">@color/bg_surface</item>
+    </style>
+</resources>

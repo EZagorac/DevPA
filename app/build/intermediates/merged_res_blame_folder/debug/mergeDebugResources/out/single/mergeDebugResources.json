@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_fragment_email.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_email.xml"
+    },
+    {
+        "merged": "com.devpa.app-debug-62:/layout_item_portfolio.xml.flat",
+        "source": "com.devpa.app-main-64:/layout/item_portfolio.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_dot_shape.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\dot_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_fragment_briefing.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_briefing.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_widget_background.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\widget_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_fragment_portfolio.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_portfolio.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_item_email.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_item_portfolio.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_portfolio.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_card_background.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\card_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_widget_dev_pa.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_dev_pa.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_fragment_jobs.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_jobs.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_item_habit.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_habit.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_briefing_output_background.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\briefing_output_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_item_job.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_job.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\drawable_input_background.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\drawable\\input_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\color_nav_icon_color.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\color\\nav_icon_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\layout_fragment_habits.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_habits.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-debug-62:\\xml_dev_pa_widget_info.xml.flat",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\xml\\dev_pa_widget_info.xml"
+    }
+]

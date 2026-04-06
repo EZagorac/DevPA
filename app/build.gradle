@@ -5,6 +5,13 @@ plugins {
     id 'com.google.dagger.hilt.android'
 }
 
+// Load local.properties for secret keys
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader -> localProperties.load(reader) }
+}
+
 android {
     namespace 'com.devpa.app'
     compileSdk 34
@@ -33,6 +40,12 @@ android {
         buildConfig true
     }
 
+    packaging {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES']
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -41,13 +54,6 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-}
-
-// Load local.properties for secret keys
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader -> localProperties.load(reader) }
 }
 
 dependencies {

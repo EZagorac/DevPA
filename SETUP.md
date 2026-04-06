@@ -53,7 +53,10 @@ sdk.dir=C\:\\Users\\YourName\\AppData\\Local\\Android\\Sdk   # Windows
 
 In VS Code terminal:
 ```bash
-# Windows
+# Windows (PowerShell)
+.\gradlew.bat assembleDebug
+
+# Windows (CMD)
 gradlew.bat assembleDebug
 
 # Mac / Linux
@@ -71,6 +74,11 @@ The APK will be at:
 Enable USB debugging on your Android phone:
 - Settings → About Phone → tap Build Number 7 times
 - Settings → Developer Options → USB Debugging → ON
+
+Add `adb` to your PATH (one-time setup, then restart terminal):
+```powershell
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\$env:USERNAME\AppData\Local\Android\Sdk\platform-tools", "User")
+```
 
 Connect phone via USB, then:
 ```bash

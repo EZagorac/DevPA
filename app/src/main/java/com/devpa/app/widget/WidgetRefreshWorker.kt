@@ -4,7 +4,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import androidx.work.*
-import com.devpa.app.data.db.DevPADatabase
+import com.devpa.app.data.db.DatabaseProvider
 import com.devpa.app.util.StreakCalculator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -25,7 +25,7 @@ class WidgetRefreshWorker(
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
             try {
-                val db = DevPADatabase.getInstance(applicationContext)
+                val db = DatabaseProvider.getInstance(applicationContext)
                 val today = StreakCalculator.todayString()
 
                 // Get all habits and calculate best streak
