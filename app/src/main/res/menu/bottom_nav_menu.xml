@@ -9,15 +9,7 @@
         android:icon="@android:drawable/ic_menu_agenda"
         android:title="@string/nav_habits" />
     <item
-        android:id="@+id/portfolioFragment"
-        android:icon="@android:drawable/ic_menu_gallery"
-        android:title="@string/nav_portfolio" />
-    <item
-        android:id="@+id/emailFragment"
-        android:icon="@android:drawable/ic_dialog_email"
-        android:title="@string/nav_email" />
-    <item
-        android:id="@+id/jobsFragment"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/nav_jobs" />
+        android:id="@+id/journeyDetailFragment"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:title="@string/nav_journey" />
 </menu>

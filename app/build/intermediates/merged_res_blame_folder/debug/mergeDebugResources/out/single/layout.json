@@ -4,28 +4,48 @@
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_portfolio.xml"
     },
     {
-        "merged": "com.devpa.app-mergeDebugResources-61:/layout/item_portfolio.xml",
-        "source": "com.devpa.app-main-64:/layout/item_portfolio.xml"
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_journey_switcher_row.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_journey_switcher_row.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_journey_small.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_journey_small.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\bottom_sheet_add_step.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\bottom_sheet_add_step.xml"
     },
     {
         "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_habit.xml",
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_habit.xml"
     },
     {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\bottom_sheet_break_picker.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\bottom_sheet_break_picker.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\bottom_sheet_step_detail.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\bottom_sheet_step_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\bottom_sheet_add_journey.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\bottom_sheet_add_journey.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_journey_list.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_journey_list.xml"
+    },
+    {
         "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_job.xml",
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_job.xml"
     },
     {
-        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_email.xml",
-        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_email.xml"
-    },
-    {
         "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_portfolio.xml",
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_portfolio.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_widget_habit_select.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_widget_habit_select.xml"
     },
     {
         "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_habits.xml",
@@ -36,15 +56,75 @@
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_jobs.xml"
     },
     {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_journey_medium.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_journey_medium.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\bottom_sheet_add_habit.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\bottom_sheet_add_habit.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_devpa_medium.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_devpa_medium.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_journey_large.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_journey_large.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_dev_pa.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_dev_pa.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_devpa_small.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_devpa_small.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_journey_widget_select.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_journey_widget_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_journey_detail.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_journey_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\activity_widget_configure.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\activity_widget_configure.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_journey_card.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_journey_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\activity_journey_widget_configure.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\activity_journey_widget_configure.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\bottom_sheet_journey_switcher.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\bottom_sheet_journey_switcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_email.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_email.xml"
+    },
+    {
+        "merged": "com.devpa.app-mergeDebugResources-61:/layout/item_journey_step.xml",
+        "source": "com.devpa.app-main-64:/layout/item_journey_step.xml"
+    },
+    {
+        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_journey_step.xml",
+        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_journey_step.xml"
+    },
+    {
         "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\fragment_briefing.xml",
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\fragment_briefing.xml"
     },
     {
         "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\item_email.xml",
         "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\item_email.xml"
-    },
-    {
-        "merged": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-mergeDebugResources-61:\\layout\\widget_dev_pa.xml",
-        "source": "C:\\Users\\evzag\\.gradle\\daemon\\9.0.0\\com.devpa.app-main-64:\\layout\\widget_dev_pa.xml"
     }
 ]

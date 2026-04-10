@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Medium widget: ~2x2 cells. All views must be RemoteViews-compatible types. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/widget_habit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F0F0EE"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Stat blocks row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp">
+
+        <!-- Streak -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_streak_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#7FFF6E"
+                android:textSize="18sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STREAK"
+                android:textColor="#888A8F"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <!-- Days tracked -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_days_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFC04A"
+                android:textSize="18sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DAYS"
+                android:textColor="#888A8F"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <!-- Best streak -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_best_val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#4FD1C5"
+                android:textSize="18sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BEST"
+                android:textColor="#888A8F"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Dot row — 7 pre-defined dots, colors set programmatically via RemoteViews -->
+    <LinearLayout
+        android:id="@+id/widget_dot_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <FrameLayout android:id="@+id/widget_dot_0"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+        <FrameLayout android:id="@+id/widget_dot_1"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+        <FrameLayout android:id="@+id/widget_dot_2"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+        <FrameLayout android:id="@+id/widget_dot_3"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+        <FrameLayout android:id="@+id/widget_dot_4"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+        <FrameLayout android:id="@+id/widget_dot_5"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+        <FrameLayout android:id="@+id/widget_dot_6"
+            android:layout_width="10dp" android:layout_height="10dp"
+            android:layout_marginEnd="2dp" android:layout_marginStart="2dp" />
+
+    </LinearLayout>
+
+    <!-- Toggle button -->
+    <Button
+        android:id="@+id/widget_toggle_btn"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Mark done today"
+        android:textSize="12sp"
+        android:textColor="#7FFF6E"
+        android:background="#1A7FFF6E" />
+
+</LinearLayout>

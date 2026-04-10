@@ -21,13 +21,12 @@
     <string name="add_habit">Add habit</string>
     <string name="app_name">DevPA</string>
     <string name="generate_briefing">Generate briefing</string>
+    <string name="journey_widget_description">Shows your journey progress and next steps</string>
     <string name="nav_briefing">Briefing</string>
-    <string name="nav_email">Email</string>
     <string name="nav_habits">Habits</string>
-    <string name="nav_jobs">Jobs</string>
-    <string name="nav_portfolio">Portfolio</string>
+    <string name="nav_journey">Journey</string>
     <string name="tasks_hint">What are you working on today?\ne.g. code player controller, fix jump bug, post devlog...</string>
-    <string name="widget_description">Shows your habit streak, days tracked, and portfolio progress</string>
+    <string name="widget_description">Shows your habit streak and days tracked</string>
     <style name="Theme.DevPA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/accent_green</item>
         <item name="colorPrimaryVariant">@color/bg_surface</item>

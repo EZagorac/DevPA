@@ -15,13 +15,13 @@
         android:label="Habits" />
 
     <fragment
-        android:id="@+id/portfolioFragment"
-        android:name="com.devpa.app.ui.portfolio.PortfolioFragment"
-        android:label="Portfolio" />
+        android:id="@+id/journeyDetailFragment"
+        android:name="com.devpa.app.ui.journey.JourneyDetailFragment"
+        android:label="Journey" />
 
-    <!--
-        Email and Jobs fragments follow the same pattern as the above.
-        Scaffold them next using the same ViewModel + Fragment + layout structure.
-    -->
+    <fragment
+        android:id="@+id/journeyListFragment"
+        android:name="com.devpa.app.ui.journey.JourneyListFragment"
+        android:label="All Journeys" />
 
 </navigation>

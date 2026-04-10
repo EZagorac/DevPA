@@ -11,11 +11,16 @@ data class HabitEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val name: String,
-    val startDate: String,       // ISO date string: "2026-04-04"
-    val createdAt: Long = System.currentTimeMillis()
+    val startDate: String,
+    val createdAt: Long = System.currentTimeMillis(),
+    val scheduleType: String = "daily",
+    val scheduleDays: String = "",
+    val timesPerWeek: Int = 0,
+    val breakUntil: String? = null,
+    val breakStartStreak: Int = 0
 )
 
-// ── HabitLog entity — one row per (habit, date) a user checks off ──
+// ── HabitLog entity ────────────────────────────────────────────────
 @Entity(
     tableName = "habit_logs",
     foreignKeys = [ForeignKey(
@@ -30,16 +35,48 @@ data class HabitLogEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val habitId: Long,
-    val date: String             // ISO date string: "2026-04-04"
+    val date: String
 )
 
-// ── Portfolio item entity ──────────────────────────────────────────
-@Entity(tableName = "portfolio_items")
-data class PortfolioItemEntity(
+// ── Journey entity ─────────────────────────────────────────────────
+@Entity(tableName = "journeys")
+data class JourneyEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+    val name: String,
+    val description: String = "",
+    val iconEmoji: String = "🎯",
+    val colourHex: String = "#7FFF6E",
+    val status: String = "ACTIVE",           // "ACTIVE" | "PAUSED" | "COMPLETED"
+    val createdAt: Long = System.currentTimeMillis(),
+    val completedAt: Long? = null,
+    val sortOrder: Int = 0,
+    val isActiveJourney: Boolean = false     // reserved for v1, managed via DataStore
+)
+
+// ── JourneyStep entity ─────────────────────────────────────────────
+@Entity(
+    tableName = "journey_steps",
+    foreignKeys = [ForeignKey(
+        entity = JourneyEntity::class,
+        parentColumns = ["id"],
+        childColumns = ["journeyId"],
+        onDelete = ForeignKey.CASCADE
+    )],
+    indices = [Index(value = ["journeyId"])]
+)
+data class JourneyStepEntity(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+    val journeyId: Long,
     val label: String,
-    val category: String,
+    val description: String? = null,
+    val notes: String? = null,
+    val category: String? = null,
+    val dueDate: String? = null,             // ISO date string
     val isDone: Boolean = false,
-    val completedAt: Long? = null
+    val progressPct: Int = 0,               // 0–100
+    val completedAt: Long? = null,
+    val sortOrder: Int = 0,
+    val dependsOnStepId: Long? = null        // reserved for v2
 )

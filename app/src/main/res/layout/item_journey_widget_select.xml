@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/card_background"
+    android:padding="14dp"
+    android:layout_marginBottom="8dp">
+
+    <View
+        android:id="@+id/view_color_accent"
+        android:layout_width="4dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_journey_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/tv_journey_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#F0F0EE" />
+
+    <TextView
+        android:id="@+id/tv_journey_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:fontFamily="monospace"
+        android:textColor="#4FD1C5" />
+
+</LinearLayout>

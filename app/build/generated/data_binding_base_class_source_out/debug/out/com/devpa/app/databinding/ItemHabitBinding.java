@@ -21,6 +21,9 @@ public final class ItemHabitBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final TextView btnOverflow;
+
+  @NonNull
   public final CheckBox checkHabit;
 
   @NonNull
@@ -28,6 +31,9 @@ public final class ItemHabitBinding implements ViewBinding {
 
   @NonNull
   public final TextView tvBestStreak;
+
+  @NonNull
+  public final TextView tvCompletionRate;
 
   @NonNull
   public final TextView tvDaysTracked;
@@ -38,16 +44,24 @@ public final class ItemHabitBinding implements ViewBinding {
   @NonNull
   public final TextView tvStreak;
 
-  private ItemHabitBinding(@NonNull LinearLayout rootView, @NonNull CheckBox checkHabit,
-      @NonNull LinearLayout dotRow, @NonNull TextView tvBestStreak, @NonNull TextView tvDaysTracked,
-      @NonNull TextView tvHabitName, @NonNull TextView tvStreak) {
+  @NonNull
+  public final TextView tvStreakWarning;
+
+  private ItemHabitBinding(@NonNull LinearLayout rootView, @NonNull TextView btnOverflow,
+      @NonNull CheckBox checkHabit, @NonNull LinearLayout dotRow, @NonNull TextView tvBestStreak,
+      @NonNull TextView tvCompletionRate, @NonNull TextView tvDaysTracked,
+      @NonNull TextView tvHabitName, @NonNull TextView tvStreak,
+      @NonNull TextView tvStreakWarning) {
     this.rootView = rootView;
+    this.btnOverflow = btnOverflow;
     this.checkHabit = checkHabit;
     this.dotRow = dotRow;
     this.tvBestStreak = tvBestStreak;
+    this.tvCompletionRate = tvCompletionRate;
     this.tvDaysTracked = tvDaysTracked;
     this.tvHabitName = tvHabitName;
     this.tvStreak = tvStreak;
+    this.tvStreakWarning = tvStreakWarning;
   }
 
   @Override
@@ -77,6 +91,12 @@ public final class ItemHabitBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_overflow;
+      TextView btnOverflow = ViewBindings.findChildViewById(rootView, id);
+      if (btnOverflow == null) {
+        break missingId;
+      }
+
       id = R.id.check_habit;
       CheckBox checkHabit = ViewBindings.findChildViewById(rootView, id);
       if (checkHabit == null) {
@@ -92,6 +112,12 @@ public final class ItemHabitBinding implements ViewBinding {
       id = R.id.tv_best_streak;
       TextView tvBestStreak = ViewBindings.findChildViewById(rootView, id);
       if (tvBestStreak == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_completion_rate;
+      TextView tvCompletionRate = ViewBindings.findChildViewById(rootView, id);
+      if (tvCompletionRate == null) {
         break missingId;
       }
 
@@ -113,8 +139,14 @@ public final class ItemHabitBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemHabitBinding((LinearLayout) rootView, checkHabit, dotRow, tvBestStreak,
-          tvDaysTracked, tvHabitName, tvStreak);
+      id = R.id.tv_streak_warning;
+      TextView tvStreakWarning = ViewBindings.findChildViewById(rootView, id);
+      if (tvStreakWarning == null) {
+        break missingId;
+      }
+
+      return new ItemHabitBinding((LinearLayout) rootView, btnOverflow, checkHabit, dotRow,
+          tvBestStreak, tvCompletionRate, tvDaysTracked, tvHabitName, tvStreak, tvStreakWarning);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

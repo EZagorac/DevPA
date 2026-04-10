@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 provider#androidx.startup.InitializationProvider
-INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:42:9-49:20
+INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:66:9-73:20
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\bea94695c6f2fc0379c4b4d38699ada2\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\bea94695c6f2fc0379c4b4d38699ada2\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\c2f91dca7dc9b07fa2d7ab6112e21600\transformed\work-runtime-2.9.0\AndroidManifest.xml:29:9-37:20
@@ -13,16 +13,16 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evzag\.gradle\cach
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\evzag\.gradle\caches\9.0.0\transforms\d96e08b611657d2cf025a27e95ca557d\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
 	android:authorities
 		INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:44:13-68
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:68:13-68
 	android:exported
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:45:13-37
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:69:13-37
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:43:13-67
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:67:13-67
 manifest
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:2:1-86:12
 MERGED from [androidx.databinding:viewbinding:8.13.2] C:\Users\evzag\.gradle\caches\9.0.0\transforms\5d133a9a8f3ebe2b1ea5842845ec9823\transformed\jetified-viewbinding-8.13.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.7] C:\Users\evzag\.gradle\caches\9.0.0\transforms\5bf2cf3071c66144431396340856479e\transformed\navigation-common-2.7.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] C:\Users\evzag\.gradle\caches\9.0.0\transforms\4cd12205cfc545614af07998d95b2c9b\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:2:1-7:12
@@ -129,8 +129,8 @@ ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:7:5-66
 	android:name
 		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:7:22-63
 application
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:9:5-60:19
-INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:9:5-60:19
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:9:5-84:19
+INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:9:5-84:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\ff17da668c1046927dc3da6ab07cd424\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\ff17da668c1046927dc3da6ab07cd424\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\evzag\.gradle\caches\9.0.0\transforms\5e2a143f5bdd162f22b6701727a2f327\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -199,44 +199,72 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
 		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:25:27-74
+activity#com.devpa.app.widget.HabitWidgetConfigureActivity
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:30:9-32:40
+	android:exported
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:31:13-64
+activity#com.devpa.app.widget.JourneyWidgetConfigureActivity
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:35:9-37:40
+	android:exported
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:36:13-66
 receiver#com.devpa.app.widget.DevPAWidgetProvider
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:30:9-39:20
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:40:9-50:20
 	android:exported
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:32:13-36
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:42:13-36
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:31:13-55
-intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:33:13-35:29
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:41:13-55
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE+action:name:com.devpa.app.ACTION_TOGGLE_HABIT
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:43:13-46:29
 action#android.appwidget.action.APPWIDGET_UPDATE
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:34:17-84
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:44:17-84
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:34:25-81
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:44:25-81
+action#com.devpa.app.ACTION_TOGGLE_HABIT
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:45:17-76
+	android:name
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:45:25-73
 meta-data#android.appwidget.provider
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:36:13-38:62
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:47:13-49:61
 	android:resource
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:38:17-59
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:49:17-58
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:37:17-58
-receiver#com.devpa.app.widget.BootReceiver
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:52:9-58:20
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:48:17-58
+receiver#com.devpa.app.widget.JourneyWidgetProvider
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:53:9-63:20
 	android:exported
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:54:13-36
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:55:13-36
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:53:13-48
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:54:13-57
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE+action:name:com.devpa.app.ACTION_COMPLETE_STEP
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:56:13-59:29
+action#com.devpa.app.ACTION_COMPLETE_STEP
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:58:17-77
+	android:name
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:58:25-74
+receiver#com.devpa.app.widget.BootReceiver
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:76:9-82:20
+	android:exported
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:78:13-36
+	android:name
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:77:13-48
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:55:13-57:29
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:79:13-81:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:56:17-79
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:80:17-79
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:56:25-76
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:80:25-76
 meta-data#androidx.work.WorkManagerInitializer
-ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:46:13-48:52
+ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:70:13-72:52
 MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\c2f91dca7dc9b07fa2d7ab6112e21600\transformed\work-runtime-2.9.0\AndroidManifest.xml:34:13-36:52
 MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\evzag\.gradle\caches\9.0.0\transforms\c2f91dca7dc9b07fa2d7ab6112e21600\transformed\work-runtime-2.9.0\AndroidManifest.xml:34:13-36:52
 	android:value
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:48:17-49
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:72:17-49
 	android:name
-		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:47:17-68
+		ADDED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml:71:17-68
 uses-sdk
 INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\evzag\Dev\DevPA\app\src\main\AndroidManifest.xml

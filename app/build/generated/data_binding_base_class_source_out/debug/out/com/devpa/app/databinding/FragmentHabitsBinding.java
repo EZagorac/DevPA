@@ -4,6 +4,8 @@ package com.devpa.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -21,16 +23,25 @@ public final class FragmentHabitsBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
+  public final LinearLayout emptyState;
+
+  @NonNull
   public final FloatingActionButton fabAddHabit;
 
   @NonNull
   public final RecyclerView recyclerHabits;
 
+  @NonNull
+  public final TextView tvHeaderSubtitle;
+
   private FragmentHabitsBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull FloatingActionButton fabAddHabit, @NonNull RecyclerView recyclerHabits) {
+      @NonNull LinearLayout emptyState, @NonNull FloatingActionButton fabAddHabit,
+      @NonNull RecyclerView recyclerHabits, @NonNull TextView tvHeaderSubtitle) {
     this.rootView = rootView;
+    this.emptyState = emptyState;
     this.fabAddHabit = fabAddHabit;
     this.recyclerHabits = recyclerHabits;
+    this.tvHeaderSubtitle = tvHeaderSubtitle;
   }
 
   @Override
@@ -60,6 +71,12 @@ public final class FragmentHabitsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.empty_state;
+      LinearLayout emptyState = ViewBindings.findChildViewById(rootView, id);
+      if (emptyState == null) {
+        break missingId;
+      }
+
       id = R.id.fab_add_habit;
       FloatingActionButton fabAddHabit = ViewBindings.findChildViewById(rootView, id);
       if (fabAddHabit == null) {
@@ -72,7 +89,14 @@ public final class FragmentHabitsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHabitsBinding((CoordinatorLayout) rootView, fabAddHabit, recyclerHabits);
+      id = R.id.tv_header_subtitle;
+      TextView tvHeaderSubtitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvHeaderSubtitle == null) {
+        break missingId;
+      }
+
+      return new FragmentHabitsBinding((CoordinatorLayout) rootView, emptyState, fabAddHabit,
+          recyclerHabits, tvHeaderSubtitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

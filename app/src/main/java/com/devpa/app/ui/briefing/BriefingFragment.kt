@@ -9,9 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
-import com.devpa.app.data.db.PortfolioDao
 import com.devpa.app.data.db.HabitDao
 import com.devpa.app.data.repository.BriefingRepository
+import com.devpa.app.data.repository.JourneyRepository
 import com.devpa.app.databinding.FragmentBriefingBinding
 import com.devpa.app.util.StreakCalculator
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +26,7 @@ import javax.inject.Inject
 class BriefingViewModel @Inject constructor(
     private val briefingRepository: BriefingRepository,
     private val habitDao: HabitDao,
-    private val portfolioDao: PortfolioDao
+    private val journeyRepository: JourneyRepository
 ) : ViewModel() {
 
     sealed class BriefingState {
@@ -52,8 +52,18 @@ class BriefingViewModel @Inject constructor(
                 val logs = habitDao.getLogDatesForHabit(h.id)
                 StreakCalculator.calculate(logs, h.startDate).currentStreak
             }.maxOrNull() ?: 0
-            val done = portfolioDao.getCompletedCount()
-            val total = portfolioDao.getTotalCount()
+
+            // Use active journey progress instead of portfolio
+            val activeId = journeyRepository.prefsRepository.activeJourneyId.let { flow ->
+                var id: Long? = null
+                val job = kotlinx.coroutines.GlobalScope.launch {
+                    flow.collect { id = it; this.coroutineContext[kotlinx.coroutines.Job]?.cancel() }
+                }
+                job.join()
+                id
+            }
+            val done = if (activeId != null) journeyRepository.stepDao.getCompletedStepCount(activeId) else 0
+            val total = if (activeId != null) journeyRepository.stepDao.getTotalStepCount(activeId) else 0
 
             briefingRepository.generateBriefing(tasks, done, total, bestStreak)
                 .fold(

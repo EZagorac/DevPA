@@ -10,13 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
 
-/**
- * WidgetRefreshWorker — runs every morning via WorkManager to update
- * the home screen widget with fresh streak and portfolio data.
- *
- * WorkManager survives app restarts and device reboots (once rescheduled
- * by BootReceiver).
- */
 class WidgetRefreshWorker(
     context: Context,
     params: WorkerParameters
@@ -25,44 +18,36 @@ class WidgetRefreshWorker(
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
             try {
-                val db = DatabaseProvider.getInstance(applicationContext)
-                val today = StreakCalculator.todayString()
-
-                // Get all habits and calculate best streak
-                val habitsWithStatus = db.habitDao().getHabitsWithTodayStatus(today)
-                var bestStreak = 0
-                var daysTracked = 0
-                var habitsToday = 0
-
-                for (h in habitsWithStatus) {
-                    val logs = db.habitDao().getLogDatesForHabit(h.id)
-                    val streak = StreakCalculator.calculate(logs, h.startDate)
-                    if (streak.currentStreak > bestStreak) {
-                        bestStreak = streak.currentStreak
-                        daysTracked = streak.daysSinceStart
-                    }
-                    if (h.logCount > 0) habitsToday++
-                }
-
-                // Portfolio completion
-                val done = db.portfolioDao().getCompletedCount()
-                val total = db.portfolioDao().getTotalCount()
-                val pct = if (total > 0) (done * 100 / total) else 0
-
-                // Push to all widget instances
                 val manager = AppWidgetManager.getInstance(applicationContext)
-                val ids = manager.getAppWidgetIds(
+
+                // ── Habit widgets ──────────────────────────────────
+                val habitWidgetIds = manager.getAppWidgetIds(
                     ComponentName(applicationContext, DevPAWidgetProvider::class.java)
                 )
-                for (id in ids) {
-                    DevPAWidgetProvider.updateWidget(
-                        applicationContext, manager, id,
-                        streak = bestStreak,
-                        daysTracked = daysTracked,
-                        portfolioPct = pct,
-                        habitsToday = habitsToday,
-                        totalHabits = habitsWithStatus.size
+                val habitPrefs = applicationContext.getSharedPreferences(
+                    DevPAWidgetProvider.PREFS_NAME, Context.MODE_PRIVATE
+                )
+                for (widgetId in habitWidgetIds) {
+                    val habitId = habitPrefs.getLong(
+                        "${DevPAWidgetProvider.PREF_HABIT_ID_PREFIX}$widgetId", -1L
                     )
+                    if (habitId == -1L) continue
+                    DevPAWidgetProvider.refreshWidget(applicationContext, manager, widgetId, habitId)
+                }
+
+                // ── Journey widgets ────────────────────────────────
+                val journeyWidgetIds = manager.getAppWidgetIds(
+                    ComponentName(applicationContext, JourneyWidgetProvider::class.java)
+                )
+                val journeyPrefs = applicationContext.getSharedPreferences(
+                    JourneyWidgetProvider.PREFS_NAME, Context.MODE_PRIVATE
+                )
+                for (widgetId in journeyWidgetIds) {
+                    val journeyId = journeyPrefs.getLong(
+                        "${JourneyWidgetProvider.PREF_JOURNEY_ID_PREFIX}$widgetId", -1L
+                    )
+                    if (journeyId == -1L) continue
+                    JourneyWidgetProvider.refreshWidget(applicationContext, manager, widgetId, journeyId)
                 }
 
                 Result.success()
@@ -73,10 +58,9 @@ class WidgetRefreshWorker(
     }
 
     companion object {
-        private const val WORK_NAME = "widget_refresh"
+        private const val WORK_NAME = "devpa_widget_refresh"
 
         fun schedule(context: Context) {
-            // Run once daily at ~8am
             val request = PeriodicWorkRequestBuilder<WidgetRefreshWorker>(1, TimeUnit.DAYS)
                 .setInitialDelay(calculateDelayUntil8am(), TimeUnit.MILLISECONDS)
                 .setConstraints(

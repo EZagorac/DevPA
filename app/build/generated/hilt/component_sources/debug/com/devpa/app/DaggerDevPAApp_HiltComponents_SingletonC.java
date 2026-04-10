@@ -8,13 +8,20 @@ import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import com.devpa.app.data.db.DevPADatabase;
 import com.devpa.app.data.db.HabitDao;
-import com.devpa.app.data.db.PortfolioDao;
+import com.devpa.app.data.db.JourneyDao;
+import com.devpa.app.data.db.JourneyStepDao;
 import com.devpa.app.data.repository.BriefingRepository;
 import com.devpa.app.data.repository.ClaudeApiService;
+import com.devpa.app.data.repository.JourneyPrefsRepository;
+import com.devpa.app.data.repository.JourneyRepository;
+import com.devpa.app.data.repository.SeedDataUseCase;
 import com.devpa.app.di.AppModule_ProvideClaudeApiServiceFactory;
 import com.devpa.app.di.AppModule_ProvideDatabaseFactory;
 import com.devpa.app.di.AppModule_ProvideHabitDaoFactory;
-import com.devpa.app.di.AppModule_ProvidePortfolioDaoFactory;
+import com.devpa.app.di.AppModule_ProvideJourneyDaoFactory;
+import com.devpa.app.di.AppModule_ProvideJourneyPrefsRepositoryFactory;
+import com.devpa.app.di.AppModule_ProvideJourneyRepositoryFactory;
+import com.devpa.app.di.AppModule_ProvideJourneyStepDaoFactory;
 import com.devpa.app.ui.MainActivity;
 import com.devpa.app.ui.briefing.BriefingFragment;
 import com.devpa.app.ui.briefing.BriefingViewModel;
@@ -28,11 +35,19 @@ import com.devpa.app.ui.habits.HabitsViewModel_HiltModules_KeyModule_ProvideFact
 import com.devpa.app.ui.jobs.JobsFragment;
 import com.devpa.app.ui.jobs.JobsViewModel;
 import com.devpa.app.ui.jobs.JobsViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.devpa.app.ui.journey.JourneyDetailFragment;
+import com.devpa.app.ui.journey.JourneyDetailViewModel;
+import com.devpa.app.ui.journey.JourneyDetailViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.devpa.app.ui.journey.JourneyListFragment;
+import com.devpa.app.ui.journey.JourneyListViewModel;
+import com.devpa.app.ui.journey.JourneyListViewModel_HiltModules_KeyModule_ProvideFactory;
+import com.devpa.app.ui.journey.JourneySwitcherBottomSheet;
+import com.devpa.app.ui.journey.JourneySwitcherViewModel;
+import com.devpa.app.ui.journey.JourneySwitcherViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.devpa.app.ui.portfolio.PortfolioFragment;
-import com.devpa.app.ui.portfolio.PortfolioViewModel;
-import com.devpa.app.ui.portfolio.PortfolioViewModel_HiltModules_KeyModule_ProvideFactory;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import dagger.hilt.android.ActivityRetainedLifecycle;
 import dagger.hilt.android.ViewModelLifecycle;
 import dagger.hilt.android.internal.builders.ActivityComponentBuilder;
@@ -47,6 +62,7 @@ import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories_Internal
 import dagger.hilt.android.internal.managers.ActivityRetainedComponentManager_LifecycleModule_ProvideActivityRetainedLifecycleFactory;
 import dagger.hilt.android.internal.managers.SavedStateHandleHolder;
 import dagger.hilt.android.internal.modules.ApplicationContextModule;
+import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideApplicationFactory;
 import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
@@ -348,6 +364,19 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
     }
 
     @Override
+    public void injectJourneyDetailFragment(JourneyDetailFragment journeyDetailFragment) {
+    }
+
+    @Override
+    public void injectJourneyListFragment(JourneyListFragment journeyListFragment) {
+    }
+
+    @Override
+    public void injectJourneySwitcherBottomSheet(
+        JourneySwitcherBottomSheet journeySwitcherBottomSheet) {
+    }
+
+    @Override
     public void injectPortfolioFragment(PortfolioFragment portfolioFragment) {
     }
 
@@ -407,7 +436,7 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return ImmutableSet.<String>of(BriefingViewModel_HiltModules_KeyModule_ProvideFactory.provide(), EmailViewModel_HiltModules_KeyModule_ProvideFactory.provide(), HabitsViewModel_HiltModules_KeyModule_ProvideFactory.provide(), JobsViewModel_HiltModules_KeyModule_ProvideFactory.provide(), PortfolioViewModel_HiltModules_KeyModule_ProvideFactory.provide());
+      return ImmutableSet.<String>of(BriefingViewModel_HiltModules_KeyModule_ProvideFactory.provide(), EmailViewModel_HiltModules_KeyModule_ProvideFactory.provide(), HabitsViewModel_HiltModules_KeyModule_ProvideFactory.provide(), JobsViewModel_HiltModules_KeyModule_ProvideFactory.provide(), JourneyDetailViewModel_HiltModules_KeyModule_ProvideFactory.provide(), JourneyListViewModel_HiltModules_KeyModule_ProvideFactory.provide(), JourneySwitcherViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -441,7 +470,11 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
 
     private Provider<JobsViewModel> jobsViewModelProvider;
 
-    private Provider<PortfolioViewModel> portfolioViewModelProvider;
+    private Provider<JourneyDetailViewModel> journeyDetailViewModelProvider;
+
+    private Provider<JourneyListViewModel> journeyListViewModelProvider;
+
+    private Provider<JourneySwitcherViewModel> journeySwitcherViewModelProvider;
 
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
@@ -460,12 +493,14 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
       this.emailViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
       this.habitsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
       this.jobsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
-      this.portfolioViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.journeyDetailViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.journeyListViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
+      this.journeySwitcherViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 6);
     }
 
     @Override
     public Map<String, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return ImmutableMap.<String, javax.inject.Provider<ViewModel>>of("com.devpa.app.ui.briefing.BriefingViewModel", ((Provider) briefingViewModelProvider), "com.devpa.app.ui.email.EmailViewModel", ((Provider) emailViewModelProvider), "com.devpa.app.ui.habits.HabitsViewModel", ((Provider) habitsViewModelProvider), "com.devpa.app.ui.jobs.JobsViewModel", ((Provider) jobsViewModelProvider), "com.devpa.app.ui.portfolio.PortfolioViewModel", ((Provider) portfolioViewModelProvider));
+      return ImmutableMap.<String, javax.inject.Provider<ViewModel>>builderWithExpectedSize(7).put("com.devpa.app.ui.briefing.BriefingViewModel", ((Provider) briefingViewModelProvider)).put("com.devpa.app.ui.email.EmailViewModel", ((Provider) emailViewModelProvider)).put("com.devpa.app.ui.habits.HabitsViewModel", ((Provider) habitsViewModelProvider)).put("com.devpa.app.ui.jobs.JobsViewModel", ((Provider) jobsViewModelProvider)).put("com.devpa.app.ui.journey.JourneyDetailViewModel", ((Provider) journeyDetailViewModelProvider)).put("com.devpa.app.ui.journey.JourneyListViewModel", ((Provider) journeyListViewModelProvider)).put("com.devpa.app.ui.journey.JourneySwitcherViewModel", ((Provider) journeySwitcherViewModelProvider)).build();
     }
 
     @Override
@@ -495,19 +530,25 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
       public T get() {
         switch (id) {
           case 0: // com.devpa.app.ui.briefing.BriefingViewModel 
-          return (T) new BriefingViewModel(singletonCImpl.briefingRepositoryProvider.get(), singletonCImpl.habitDao(), singletonCImpl.portfolioDao());
+          return (T) new BriefingViewModel(singletonCImpl.briefingRepositoryProvider.get(), singletonCImpl.habitDao(), singletonCImpl.provideJourneyRepositoryProvider.get());
 
           case 1: // com.devpa.app.ui.email.EmailViewModel 
           return (T) new EmailViewModel(singletonCImpl.provideClaudeApiServiceProvider.get());
 
           case 2: // com.devpa.app.ui.habits.HabitsViewModel 
-          return (T) new HabitsViewModel(singletonCImpl.habitDao());
+          return (T) new HabitsViewModel(ApplicationContextModule_ProvideApplicationFactory.provideApplication(singletonCImpl.applicationContextModule), singletonCImpl.habitDao());
 
           case 3: // com.devpa.app.ui.jobs.JobsViewModel 
           return (T) new JobsViewModel(singletonCImpl.provideClaudeApiServiceProvider.get());
 
-          case 4: // com.devpa.app.ui.portfolio.PortfolioViewModel 
-          return (T) new PortfolioViewModel(singletonCImpl.portfolioDao());
+          case 4: // com.devpa.app.ui.journey.JourneyDetailViewModel 
+          return (T) new JourneyDetailViewModel(ApplicationContextModule_ProvideApplicationFactory.provideApplication(singletonCImpl.applicationContextModule), singletonCImpl.provideJourneyRepositoryProvider.get());
+
+          case 5: // com.devpa.app.ui.journey.JourneyListViewModel 
+          return (T) new JourneyListViewModel(singletonCImpl.provideJourneyRepositoryProvider.get(), singletonCImpl.seedDataUseCase());
+
+          case 6: // com.devpa.app.ui.journey.JourneySwitcherViewModel 
+          return (T) new JourneySwitcherViewModel(singletonCImpl.provideJourneyRepositoryProvider.get());
 
           default: throw new AssertionError(id);
         }
@@ -589,11 +630,15 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
 
     private final SingletonCImpl singletonCImpl = this;
 
+    private Provider<DevPADatabase> provideDatabaseProvider;
+
+    private Provider<JourneyPrefsRepository> provideJourneyPrefsRepositoryProvider;
+
+    private Provider<JourneyRepository> provideJourneyRepositoryProvider;
+
     private Provider<ClaudeApiService> provideClaudeApiServiceProvider;
 
     private Provider<BriefingRepository> briefingRepositoryProvider;
-
-    private Provider<DevPADatabase> provideDatabaseProvider;
 
     private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
       this.applicationContextModule = applicationContextModuleParam;
@@ -601,23 +646,34 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
 
     }
 
+    private JourneyDao journeyDao() {
+      return AppModule_ProvideJourneyDaoFactory.provideJourneyDao(provideDatabaseProvider.get());
+    }
+
+    private JourneyStepDao journeyStepDao() {
+      return AppModule_ProvideJourneyStepDaoFactory.provideJourneyStepDao(provideDatabaseProvider.get());
+    }
+
+    private SeedDataUseCase seedDataUseCase() {
+      return new SeedDataUseCase(provideJourneyRepositoryProvider.get());
+    }
+
     private HabitDao habitDao() {
       return AppModule_ProvideHabitDaoFactory.provideHabitDao(provideDatabaseProvider.get());
     }
 
-    private PortfolioDao portfolioDao() {
-      return AppModule_ProvidePortfolioDaoFactory.providePortfolioDao(provideDatabaseProvider.get());
-    }
-
     @SuppressWarnings("unchecked")
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
-      this.provideClaudeApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<ClaudeApiService>(singletonCImpl, 1));
-      this.briefingRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<BriefingRepository>(singletonCImpl, 0));
-      this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<DevPADatabase>(singletonCImpl, 2));
+      this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<DevPADatabase>(singletonCImpl, 1));
+      this.provideJourneyPrefsRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<JourneyPrefsRepository>(singletonCImpl, 2));
+      this.provideJourneyRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<JourneyRepository>(singletonCImpl, 0));
+      this.provideClaudeApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<ClaudeApiService>(singletonCImpl, 4));
+      this.briefingRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<BriefingRepository>(singletonCImpl, 3));
     }
 
     @Override
     public void injectDevPAApp(DevPAApp devPAApp) {
+      injectDevPAApp2(devPAApp);
     }
 
     @Override
@@ -635,6 +691,12 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
       return new ServiceCBuilder(singletonCImpl);
     }
 
+    @CanIgnoreReturnValue
+    private DevPAApp injectDevPAApp2(DevPAApp instance) {
+      DevPAApp_MembersInjector.injectSeedDataUseCase(instance, seedDataUseCase());
+      return instance;
+    }
+
     private static final class SwitchingProvider<T> implements Provider<T> {
       private final SingletonCImpl singletonCImpl;
 
@@ -649,14 +711,20 @@ public final class DaggerDevPAApp_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.devpa.app.data.repository.BriefingRepository 
+          case 0: // com.devpa.app.data.repository.JourneyRepository 
+          return (T) AppModule_ProvideJourneyRepositoryFactory.provideJourneyRepository(singletonCImpl.journeyDao(), singletonCImpl.journeyStepDao(), singletonCImpl.provideJourneyPrefsRepositoryProvider.get());
+
+          case 1: // com.devpa.app.data.db.DevPADatabase 
+          return (T) AppModule_ProvideDatabaseFactory.provideDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 2: // com.devpa.app.data.repository.JourneyPrefsRepository 
+          return (T) AppModule_ProvideJourneyPrefsRepositoryFactory.provideJourneyPrefsRepository(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 3: // com.devpa.app.data.repository.BriefingRepository 
           return (T) new BriefingRepository(singletonCImpl.provideClaudeApiServiceProvider.get());
 
-          case 1: // com.devpa.app.data.repository.ClaudeApiService 
+          case 4: // com.devpa.app.data.repository.ClaudeApiService 
           return (T) AppModule_ProvideClaudeApiServiceFactory.provideClaudeApiService();
-
-          case 2: // com.devpa.app.data.db.DevPADatabase 
-          return (T) AppModule_ProvideDatabaseFactory.provideDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
           default: throw new AssertionError(id);
         }

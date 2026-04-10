@@ -26,16 +26,40 @@
             </intent-filter>
         </activity>
 
-        <!-- Home Screen Widget -->
+        <!-- Habit widget configure activity -->
+        <activity
+            android:name=".widget.HabitWidgetConfigureActivity"
+            android:exported="false" />
+
+        <!-- Journey widget configure activity -->
+        <activity
+            android:name=".widget.JourneyWidgetConfigureActivity"
+            android:exported="false" />
+
+        <!-- Habit Home Screen Widget -->
         <receiver
             android:name=".widget.DevPAWidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.devpa.app.ACTION_TOGGLE_HABIT" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/dev_pa_widget_info" />
+                android:resource="@xml/devpa_widget_info" />
+        </receiver>
+
+        <!-- Journey Home Screen Widget -->
+        <receiver
+            android:name=".widget.JourneyWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.devpa.app.ACTION_COMPLETE_STEP" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/journey_widget_info" />
         </receiver>
 
         <!-- WorkManager for background refresh -->

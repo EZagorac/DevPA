@@ -11,8 +11,13 @@ import com.devpa.app.ui.habits.HabitsFragment_GeneratedInjector;
 import com.devpa.app.ui.habits.HabitsViewModel_HiltModules;
 import com.devpa.app.ui.jobs.JobsFragment_GeneratedInjector;
 import com.devpa.app.ui.jobs.JobsViewModel_HiltModules;
+import com.devpa.app.ui.journey.JourneyDetailFragment_GeneratedInjector;
+import com.devpa.app.ui.journey.JourneyDetailViewModel_HiltModules;
+import com.devpa.app.ui.journey.JourneyListFragment_GeneratedInjector;
+import com.devpa.app.ui.journey.JourneyListViewModel_HiltModules;
+import com.devpa.app.ui.journey.JourneySwitcherBottomSheet_GeneratedInjector;
+import com.devpa.app.ui.journey.JourneySwitcherViewModel_HiltModules;
 import com.devpa.app.ui.portfolio.PortfolioFragment_GeneratedInjector;
-import com.devpa.app.ui.portfolio.PortfolioViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -173,7 +178,9 @@ public final class DevPAApp_HiltComponents {
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           HiltWrapper_SavedStateHandleModule.class,
           JobsViewModel_HiltModules.KeyModule.class,
-          PortfolioViewModel_HiltModules.KeyModule.class
+          JourneyDetailViewModel_HiltModules.KeyModule.class,
+          JourneyListViewModel_HiltModules.KeyModule.class,
+          JourneySwitcherViewModel_HiltModules.KeyModule.class
       }
   )
   @ActivityRetainedScoped
@@ -214,7 +221,9 @@ public final class DevPAApp_HiltComponents {
           HabitsViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
           JobsViewModel_HiltModules.BindsModule.class,
-          PortfolioViewModel_HiltModules.BindsModule.class
+          JourneyDetailViewModel_HiltModules.BindsModule.class,
+          JourneyListViewModel_HiltModules.BindsModule.class,
+          JourneySwitcherViewModel_HiltModules.BindsModule.class
       }
   )
   @ViewModelScoped
@@ -243,6 +252,9 @@ public final class DevPAApp_HiltComponents {
       EmailFragment_GeneratedInjector,
       HabitsFragment_GeneratedInjector,
       JobsFragment_GeneratedInjector,
+      JourneyDetailFragment_GeneratedInjector,
+      JourneyListFragment_GeneratedInjector,
+      JourneySwitcherBottomSheet_GeneratedInjector,
       PortfolioFragment_GeneratedInjector,
       FragmentComponent,
       DefaultViewModelFactories.FragmentEntryPoint,

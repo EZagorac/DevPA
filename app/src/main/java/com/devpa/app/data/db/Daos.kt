@@ -10,32 +10,42 @@ interface HabitDao {
     @Query("SELECT * FROM habits ORDER BY createdAt ASC")
     fun getAllHabits(): Flow<List<HabitEntity>>
 
+    @Query("SELECT * FROM habit_logs ORDER BY date ASC")
+    fun getAllLogs(): Flow<List<HabitLogEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHabit(habit: HabitEntity): Long
 
     @Delete
     suspend fun deleteHabit(habit: HabitEntity)
 
-    // Get all log dates for a specific habit
+    @Query("SELECT * FROM habits WHERE id = :id LIMIT 1")
+    suspend fun getHabitById(id: Long): HabitEntity?
+
+    @Query("SELECT * FROM habits ORDER BY createdAt ASC")
+    suspend fun getAllHabitsSync(): List<HabitEntity>
+
     @Query("SELECT date FROM habit_logs WHERE habitId = :habitId ORDER BY date ASC")
     suspend fun getLogDatesForHabit(habitId: Long): List<String>
 
-    // Check if a habit was completed on a specific date
     @Query("SELECT COUNT(*) FROM habit_logs WHERE habitId = :habitId AND date = :date")
     suspend fun isCompletedOn(habitId: Long, date: String): Int
 
-    // Insert a log entry (mark done)
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertLog(log: HabitLogEntity)
 
-    // Delete a log entry (unmark done)
     @Query("DELETE FROM habit_logs WHERE habitId = :habitId AND date = :date")
     suspend fun deleteLog(habitId: Long, date: String)
 
-    // Get all habits completed today (used by widget)
+    @Query("UPDATE habits SET name = :name WHERE id = :id")
+    suspend fun updateHabitName(id: Long, name: String)
+
+    @Query("UPDATE habits SET breakUntil = :breakUntil, breakStartStreak = :breakStartStreak WHERE id = :id")
+    suspend fun updateBreak(id: Long, breakUntil: String?, breakStartStreak: Int)
+
     @Query("""
-        SELECT h.*, COUNT(l.id) as logCount 
-        FROM habits h 
+        SELECT h.*, COUNT(l.id) as logCount
+        FROM habits h
         LEFT JOIN habit_logs l ON h.id = l.habitId AND l.date = :today
         GROUP BY h.id
     """)
@@ -47,34 +57,92 @@ data class HabitWithTodayStatus(
     val name: String,
     val startDate: String,
     val createdAt: Long,
-    val logCount: Int           // > 0 means done today
+    val scheduleType: String,
+    val scheduleDays: String,
+    val timesPerWeek: Int,
+    val breakUntil: String?,
+    val breakStartStreak: Int,
+    val logCount: Int
 )
 
-// ── Portfolio DAO ──────────────────────────────────────────────────
+// ── Journey DAO ────────────────────────────────────────────────────
 @Dao
-interface PortfolioDao {
+interface JourneyDao {
 
-    @Query("SELECT * FROM portfolio_items ORDER BY category ASC, id ASC")
-    fun getAllItems(): Flow<List<PortfolioItemEntity>>
+    @Query("SELECT * FROM journeys ORDER BY sortOrder ASC")
+    fun getAllJourneys(): Flow<List<JourneyEntity>>
+
+    @Query("SELECT * FROM journeys WHERE id = :id")
+    suspend fun getJourneyById(id: Long): JourneyEntity?
+
+    @Query("SELECT * FROM journeys WHERE status = 'ACTIVE' ORDER BY sortOrder ASC")
+    fun getActiveJourneys(): Flow<List<JourneyEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertItem(item: PortfolioItemEntity)
+    suspend fun insertJourney(journey: JourneyEntity): Long
+
+    @Update
+    suspend fun updateJourney(journey: JourneyEntity)
+
+    @Delete
+    suspend fun deleteJourney(journey: JourneyEntity)
+
+    @Query("UPDATE journeys SET status = :status, completedAt = :completedAt WHERE id = :id")
+    suspend fun updateStatus(id: Long, status: String, completedAt: Long?)
+
+    @Query("SELECT COUNT(*) FROM journeys")
+    suspend fun getJourneyCount(): Int
+
+    @Query("SELECT * FROM journeys ORDER BY sortOrder ASC")
+    suspend fun getAllJourneysSync(): List<JourneyEntity>
+}
+
+// ── Journey Step DAO ───────────────────────────────────────────────
+@Dao
+interface JourneyStepDao {
+
+    @Query("SELECT * FROM journey_steps WHERE journeyId = :journeyId ORDER BY sortOrder ASC")
+    fun getStepsForJourney(journeyId: Long): Flow<List<JourneyStepEntity>>
+
+    @Query("SELECT * FROM journey_steps WHERE journeyId = :journeyId ORDER BY sortOrder ASC")
+    suspend fun getStepsForJourneyOnce(journeyId: Long): List<JourneyStepEntity>
+
+    @Query("SELECT * FROM journey_steps WHERE journeyId = :journeyId AND isDone = 0 ORDER BY sortOrder ASC LIMIT 3")
+    suspend fun getNextThreeSteps(journeyId: Long): List<JourneyStepEntity>
+
+    @Query("SELECT * FROM journey_steps WHERE journeyId = :journeyId AND isDone = 0 ORDER BY sortOrder ASC LIMIT 1")
+    suspend fun getNextStep(journeyId: Long): JourneyStepEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(items: List<PortfolioItemEntity>)
+    suspend fun insertStep(step: JourneyStepEntity): Long
 
-    @Query("UPDATE portfolio_items SET isDone = :isDone, completedAt = :completedAt WHERE id = :id")
-    suspend fun updateDoneStatus(id: Long, isDone: Boolean, completedAt: Long?)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(steps: List<JourneyStepEntity>)
 
-    @Query("SELECT COUNT(*) FROM portfolio_items WHERE isDone = 1")
-    suspend fun getCompletedCount(): Int
+    @Update
+    suspend fun updateStep(step: JourneyStepEntity)
 
-    @Query("SELECT COUNT(*) FROM portfolio_items")
-    suspend fun getTotalCount(): Int
+    @Delete
+    suspend fun deleteStep(step: JourneyStepEntity)
 
-    @Query("SELECT COUNT(*) FROM portfolio_items")
-    fun getTotalCountFlow(): Flow<Int>
+    @Query("UPDATE journey_steps SET progressPct = :pct, isDone = :isDone, completedAt = :completedAt WHERE id = :id")
+    suspend fun updateProgress(id: Long, pct: Int, isDone: Boolean, completedAt: Long?)
 
-    @Query("SELECT COUNT(*) FROM portfolio_items WHERE isDone = 1")
-    fun getCompletedCountFlow(): Flow<Int>
+    @Query("UPDATE journey_steps SET sortOrder = :sortOrder WHERE id = :id")
+    suspend fun updateSortOrder(id: Long, sortOrder: Int)
+
+    @Query("UPDATE journey_steps SET category = :newName WHERE journeyId = :journeyId AND category = :oldName")
+    suspend fun renameCategory(journeyId: Long, oldName: String, newName: String)
+
+    @Query("UPDATE journey_steps SET category = null WHERE journeyId = :journeyId AND category = :name")
+    suspend fun deleteCategory(journeyId: Long, name: String)
+
+    @Query("SELECT COUNT(*) FROM journey_steps WHERE journeyId = :journeyId")
+    suspend fun getTotalStepCount(journeyId: Long): Int
+
+    @Query("SELECT COUNT(*) FROM journey_steps WHERE journeyId = :journeyId AND isDone = 1")
+    suspend fun getCompletedStepCount(journeyId: Long): Int
+
+    @Query("SELECT SUM(progressPct) FROM journey_steps WHERE journeyId = :journeyId")
+    suspend fun getSumProgressPct(journeyId: Long): Int?
 }

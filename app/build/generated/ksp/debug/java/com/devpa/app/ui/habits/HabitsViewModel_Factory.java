@@ -1,5 +1,6 @@
 package com.devpa.app.ui.habits;
 
+import android.app.Application;
 import com.devpa.app.data.db.HabitDao;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -22,22 +23,27 @@ import javax.inject.Provider;
     "KotlinInternalInJava"
 })
 public final class HabitsViewModel_Factory implements Factory<HabitsViewModel> {
+  private final Provider<Application> applicationProvider;
+
   private final Provider<HabitDao> habitDaoProvider;
 
-  public HabitsViewModel_Factory(Provider<HabitDao> habitDaoProvider) {
+  public HabitsViewModel_Factory(Provider<Application> applicationProvider,
+      Provider<HabitDao> habitDaoProvider) {
+    this.applicationProvider = applicationProvider;
     this.habitDaoProvider = habitDaoProvider;
   }
 
   @Override
   public HabitsViewModel get() {
-    return newInstance(habitDaoProvider.get());
+    return newInstance(applicationProvider.get(), habitDaoProvider.get());
   }
 
-  public static HabitsViewModel_Factory create(Provider<HabitDao> habitDaoProvider) {
-    return new HabitsViewModel_Factory(habitDaoProvider);
+  public static HabitsViewModel_Factory create(Provider<Application> applicationProvider,
+      Provider<HabitDao> habitDaoProvider) {
+    return new HabitsViewModel_Factory(applicationProvider, habitDaoProvider);
   }
 
-  public static HabitsViewModel newInstance(HabitDao habitDao) {
-    return new HabitsViewModel(habitDao);
+  public static HabitsViewModel newInstance(Application application, HabitDao habitDao) {
+    return new HabitsViewModel(application, habitDao);
   }
 }
